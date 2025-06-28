@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yacoub Smadi Portfolio - الرئيسية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      color: #222;
+      direction: rtl;
+      text-align: center;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #eee;
+    }
+
+    nav {
+      background-color: #004AAD;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    nav img {
+      height: 40px;
+    }
+
+    .nav-links a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-actions button {
+      margin-right: 10px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: white;
+      color: #004AAD;
+      font-weight: bold;
+    }
+
+    .nav-actions button:hover {
+      background: #ddd;
+    }
+
+    header {
+      padding: 50px 20px;
+    }
+
+    header img {
+      width: 200px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #004AAD;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    a.button:hover {
+      background-color: #003377;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ شريط التنقل -->
+  <nav>
+    <img src="logo.jpeg" alt="Logo" />
+    <div class="nav-links">
+      <a href="index.html" data-ar="🏠 الرئيسية" data-en="🏠 Home">🏠 الرئيسية</a>
+      <a href="about.html" data-ar="👤 من أنا" data-en="👤 About">👤 من أنا</a>
+      <a href="projects.html" data-ar="💼 المشاريع" data-en="💼 Projects">💼 المشاريع</a>
+      <a href="books_services_contact.html" data-ar="📚 الخدمات والتواصل" data-en="📚 Services & Contact">📚 الخدمات والتواصل</a>
+    </div>
+    <div class="nav-actions">
+      <button onclick="toggleDarkMode()">🌓 المود</button>
+      <button onclick="toggleLanguage()">🌐 اللغة</button>
+    </div>
+  </nav>
+
+  <!-- ✅ المحتوى الرئيسي -->
+  <header>
+    <img src="site page.jpeg" alt="Yacoub Photo" />
+    <h1 id="main-title" data-ar="Yacoub Smadi — Network Engineer & Creative Technologist"
+                     data-en="Yacoub Smadi — مهندس شبكات ومبتكر تقني">
+      Yacoub Smadi — Network Engineer & Creative Technologist
+    </h1>
+    <a href="about.html" class="button" id="about-button" data-ar="⬇️ من أنا" data-en="⬇️ About Me">⬇️ من أنا</a>
+  </header>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    let isArabic = true;
+    function toggleLanguage() {
+      isArabic = !isArabic;
+
+      document.documentElement.lang = isArabic ? "ar" : "en";
+      document.documentElement.dir = isArabic ? "rtl" : "ltr";
+
+      // تبديل النصوص حسب data attributes
+      document.querySelectorAll('[data-ar]').forEach(el => {
+        el.innerHTML = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      });
+    }
+  </script>
+
+</body>
+</html>
